@@ -1,0 +1,20 @@
+#cloud-config
+{% if root_pass is defined %}
+disable_root: false
+ssh_pwauth: True
+ssh_deletekeys: False
+chpasswd:
+   list: |
+     root:{{ root_pass }}
+   expire: False
+{% endif %}
+
+{% if system_user is defined %}
+users:
+  - name: {{ system_user }}
+    ssh_authorized_keys:
+      - {{ system_user_ssh_pub_key }}
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    shell: /bin/bash
+    groups: wheel
+{% endif %}

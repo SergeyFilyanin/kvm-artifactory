@@ -1,0 +1,8 @@
+image_url: https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-disk1.img
+image_url_artifactory: http://malta3025.startdedicated.com:31124/artifactory/generic-local/ubuntu_desktop.qcow2
+local_image_dest: /work-sergey/try
+vms_dir_tf: /opt/vms
+disk_pool: default
+disk_size_gb: 10
+cpu: 1
+ram: 2
